@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block extrahead %} {% endblock %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/default.css' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>{% block title %}Document{% endblock %}</title>
+</head>
+<body>
+	{% block navbar %}
+		<nav class="navbar navbar-default">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="{% url 'pet:index' %}">MyPets</a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        
+	        
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pets <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="{% url 'pet:pet_create' %}">Register</a></li>
+	            <li><a href="{% url 'pet:pet_to_list' %}">All List</a></li> 
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-heart"></span>&nbsp; Adoptions <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="{% url 'adoption:your_request_create' %}">Apply for</a></li>
+	            <li><a href="{% url 'adoption:your_request_to_list' %}">Requests List</a></li> 
+	          </ul>
+	        </li>
+	      </ul>
+	      
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li><a href="{% url 'pet:index' %}"><span class="glyphicon glyphicon-home"></span>&nbsp; Homepage</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp; My Account <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Logout</a></li>
+	            
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	{% endblock %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{% block content %}
+					<h5>This is content of the base.</h5>
+				{% endblock %}
+			</div>		
+			
+			
+		</div>
+	</div>
+	<div class="text-center footer">
+		{% block footer %}
+			{% now "Y" %}, &copy;copyright MS 
+		{% endblock %}
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	{% block extrajs %}
+		
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+	
+
+
+	background: #ECE9E6; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	        
+	font-family: 'Oswald', helvetica, sans-serif !important;
+	font-size:18px !important;
+}
+
+.footer {
+	position: fixed;
+	bottom: 5px;
+	width:100%;
+	font-size:14px;
+	font-family: 'Roboto';
+	letter-spacing: -1px;
+}
+
+/*Navigation*/
+.navbar-toggle {
+	background: #666 !important;
+}
+.navbar-toggle:hover {
+	background: #FFFFFF !important;
+}
+.navbar {
+	background: #171918 !important;
+
+}
+.navbar-default .navbar-nav > li > a {
+	color: #BBB !important;
+}
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li {
+	transition: background-color 0.5s ease;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	color: #333 !important;
+}
+.navbar-default .navbar-nav > li:hover {
+	background: #FFFFFF !important;
+
+}
+
+.navbar-nav {
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 'Roboto';
+	letter-spacing: -1px;
+}
+.navbar-brand {
+	font-family: 'Satisfy', cursive !important;
+	color: #222;
+	font-weight: bold;
+	
+	font-size:35px !important;
+
+}
+
+/*Table*/
+
+th {
+	color:;
+	background:;
+	text-transform: uppercase;
+}
+
+label {
+	color:#313131 !important;
+}
+
+li,ul {
+	list-style-type: none;
+}
+
+
+
+/*FORMAT*/
+.mypet {
+	color: #cd143c;
+}
+
+h1 {
+	font-size: 50px !important;
+	padding-bottom: 25px;
+}
+.intro {
+	font-size:122px !important;
+	text-transform: uppercase;
+}
+.intro small {
+	color: #cd143c;
+}
+h2 {
+	font-size: 40px !important;
+	padding-bottom: 25px;
+}

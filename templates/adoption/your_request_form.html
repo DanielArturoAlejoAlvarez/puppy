@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+	<div class="col-md-12">
+		<form action="" method="post">
+			{% csrf_token %}
+			
+			<div class="row">
+
+				<div class="col-md-8 col-md-offset-2">
+					<h1>Apply Form</h1>
+					<div class="form-group">
+						<label for="">{{ form2.first_name.label}}</label>{{ form2.first_name}}
+					</div>
+				
+					<div class="form-group">
+						<label for="">{{ form2.last_name.label}}</label>{{ form2.last_name}}
+					</div>
+
+					<div class="form-group">
+						<label for="">{{ form2.age.label}}</label>{{ form2.age}}
+					</div>
+
+					<div class="form-group">
+						<label for="">{{ form2.phone.label}}</label>{{ form2.phone}}
+					</div>
+
+					<div class="form-group">
+						<label for="">{{ form2.email.label}}</label>{{ form2.email}}
+					</div>
+
+					<div class="form-group">
+						<label for="">{{ form2.address.label}}</label>{{ form2.address}}
+					</div>
+					
+					<div class="form-group">
+						<label for="">{{ form.number_pets.label}}</label>{{ form.number_pets}}
+					</div>
+
+					<div class="form-group">
+						<label for="">{{ form.reasons.label}}</label>{{ form.reasons}}
+					</div>
+
+
+					<button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+				</div> 
+			</div> 
+		</form>
+
+	</div>
+	<div class="col-md-12"><p>&nbsp;</p></div>
+	
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Adopter List</h1>
+			<div class="table-responsive table-bordered">
+				<table class="table">
+
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Adopter</th>
+						<th>Number Pets</th>
+						<th>Reasons</th>				
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- {#% if pets %}
+				{#% for pet in pets %} -->
+				{% if object_list %}
+				{% for yr in object_list %}
+					<tr>
+						<td>{{ yr.id }}</td>
+						<td>{{ yr.person.first_name }} {{ yr.person.last_name }}</td>
+						<td>{{ yr.number_pets }}</td>
+						<td>{{ yr.reasons }}</td>
+						
+						<td>
+							<a href="{% url 'adoption:your_request_to_edit' yr.id %}" class="btn btn-warning btn-xs">
+		                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit
+		                    </a>
+							<a href="{% url 'adoption:your_request_to_delete' yr.id %}" class="btn btn-danger btn-xs">
+		                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+		                    </a>
+		                    
+						</td>
+					</tr>
+					{% endfor %}
+					{% else %}
+						<h2>No records found Your Requests</h2>
+					{% endif %}
+				</tbody>
+
+			</table>
+			</div>
+		</div>
+	</div>
+	
+	
+{% endblock %}
