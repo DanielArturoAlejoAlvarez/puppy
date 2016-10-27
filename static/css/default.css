@@ -55,9 +55,7 @@ body {
 	font-family: 'Satisfy', cursive !important;
 	color: #222;
 	font-weight: bold;
-	
 	font-size:35px !important;
-
 }
 
 /*Table*/
@@ -97,4 +95,19 @@ h1 {
 h2 {
 	font-size: 40px !important;
 	padding-bottom: 25px;
+}
+
+/*USER*/
+.user {
+	position:fixed;
+	top:50px;
+	right:15px;
+	color:inherit !important;
+	font-size: 12px;
+}
+.user span {
+	
+	color: #ff4500 !important;
+	font-size: 15px;
+	
 }

@@ -50,10 +50,19 @@
 	      	<li><a href="{% url 'pet:index' %}"><span class="glyphicon glyphicon-home"></span>&nbsp; Homepage</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp; My Account <span class="caret"></span></a>
+	          
+			            
+			  
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Logout</a></li>
-	            
+	          	{% if user.is_authenticated %}
+	            	<li><a href="{% url 'logout' %}">Sign Out</a></li>
+	            	<li><a href="{% url 'password_reset' %}">Recover Password</a></li>
+	            {% else %}
+					<li><a href="{% url 'login' %}">Sign In</a></li>
+	          		<li><a href="{% url 'all_user:to_register' %}">Sign Up</a></li>
+	            {% endif %}
 	          </ul>
+	          
 	        </li>
 	      </ul>
 	    </div>
@@ -61,6 +70,14 @@
 	</nav>
 	{% endblock %}
 	<div class="container">
+		<div class="user">
+			{% if user.is_authenticated %}
+				Welcome <span>{{ user.username }}</span> !!
+			{% else %}
+				&nbsp;
+			{% endif %}
+		</div>
+		
 		<div class="row">
 			<div class="col-md-12">
 				{% block content %}

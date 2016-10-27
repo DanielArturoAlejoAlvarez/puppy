@@ -7,47 +7,59 @@
 			<div class="table-responsive table-bordered">
 				<table class="table">
 
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Name</th>
-						<th>Sex</th>
-						<th>Age</th>
-						<th>Date of Recovery</th>
-						<th>Adopter</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-				<!-- {#% if pets %}
-				{#% for pet in pets %} -->
-				{% if object_list %}
-				{% for pet in object_list %}
-					<tr>
-						<td>{{ pet.id }}</td>
-						<td>{{ pet.name }}</td>
-						<td>{{ pet.sex }}</td>
-						<td>{{ pet.age_approx }}</td>
-						<td>{{ pet.date_recovery }}</td>
-						<td>{{ pet.person.first_name }} {{ pet.person.last_name }}</td>
-						<td>
-							<a href="{% url 'pet:pet_to_edit' pet.id %}" class="btn btn-warning btn-xs">
-		                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit
-		                    </a>
-							<a href="{% url 'pet:pet_to_delete' pet.id %}" class="btn btn-danger btn-xs">
-		                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
-		                    </a>
-		                    
-						</td>
-					</tr>
-					{% endfor %}
-					{% else %}
-						<h2>No records found pets</h2>
-					{% endif %}
-				</tbody>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Sex</th>
+							<th>Age</th>
+							<th>Date of Recovery</th>
+							<th>Adopter</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- {#% if pets %}
+					{#% for pet in pets %} -->
+					{% if object_list %}
+					{% for pet in object_list %}
+						<tr>
+							<td>{{ pet.id }}</td>
+							<td>{{ pet.name }}</td>
+							<td>{{ pet.sex }}</td>
+							<td>{{ pet.age_approx }}</td>
+							<td>{{ pet.date_recovery }}</td>
+							<td>{{ pet.person.first_name }} {{ pet.person.last_name }}</td>
+							<td>
+								<a href="{% url 'pet:pet_to_edit' pet.id %}" class="btn btn-warning btn-xs">
+			                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit
+			                    </a>
+								<a href="{% url 'pet:pet_to_delete' pet.id %}" class="btn btn-danger btn-xs">
+			                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+			                    </a>
+			                    
+							</td>
+						</tr>
+						{% endfor %}
+						{% else %}
+							<h2>No records found pets</h2>
+						{% endif %}
+					</tbody>
 
-			</table>
+				</table> 
+
 			</div>
+			<ul class="pager">
+				<li>
+					{% if page_obj.has_previous %}
+						<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+					{% endif %} 
+				</li>
+				<li>
+					{% if page_obj.has_next %}
+						<a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+					{% endif %}
+			</ul>
 		</div>
 	</div>
 	

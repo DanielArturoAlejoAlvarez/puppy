@@ -14,8 +14,14 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from django.core.urlresolvers import reverse_lazy
 
-# Create your views here.
+from django.core import serializers
 
+from django.contrib.auth.models import User 
+
+# Create your views here.
+def listUser(request):
+	list=serializers.serialize('json', User.objects.all(), fields=['first_name', 'last_name', 'email', 'username'])
+	return HttpResponse(list, content_type='application/json')
 
 def index(request):
 	#return HttpResponse("<h1>Pets</h1>")
@@ -61,7 +67,8 @@ def pet_delete(request, id_pet):
 
 class PetList(ListView):
 	model=Pet
-	template_name= 'pet/pet_list.html'
+	template_name='pet/pet_list.html'
+	paginate_by=1
 
 class PetCreate(CreateView):
 	model=Pet
